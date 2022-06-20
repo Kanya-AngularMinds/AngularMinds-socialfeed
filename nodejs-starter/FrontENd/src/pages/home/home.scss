@@ -1,0 +1,31 @@
+.picker-container {
+    position: relative;
+    //  width: 300px;
+  }
+   
+  .emoji-icon {
+    cursor: pointer;
+    position: absolute;
+    top: 8px;
+    right: 480px;
+    height:25px;
+  }
+   
+  .input-style {
+    padding: 7px 30px 7px 10px;
+    // border-radius: 3px;
+    // border: 1px solid #999;
+    margin-bottom: 10px;
+   
+    border:none;
+  }
+  .home{
+    cursor: pointer;
+    // position: absolute;
+    top: 8px;
+    right: 250px;
+    
+  }
+
+
+ 

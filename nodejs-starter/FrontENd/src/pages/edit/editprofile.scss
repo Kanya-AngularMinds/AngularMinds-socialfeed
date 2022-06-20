@@ -1,0 +1,49 @@
+.card{
+    display: flex;
+    flex-direction: column;
+     justify-content: center;
+    align-items: center;
+    padding: 32px 16px;
+    gap: 32px;
+    
+    position: absolute;
+    width: 512px;
+    height: 780px;
+    margin: auto;
+    //  left: 520px;
+     top:15px;
+    background: #FFFFFF;
+    box-shadow: -1px -1px 4px rgba(33, 43, 54, 0.1), 2px 2px 4px rgba(33, 43, 54, 0.2);
+    border-radius: 10px;
+}
+
+.title{
+    width: 165px;
+     height: 36px;
+    font-family: 'Public Sans';
+    font-style: normal;
+     font-weight: 700;
+     margin:auto;
+     font-size: 30px;
+     line-height: 36px;
+    /* identical to box height, or 150% */
+    
+    
+    color: #212B36;
+}
+.btn{
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 11px 22px;
+gap: 16px;
+
+width: 480px;
+height: 48px;
+
+/* 03 Info/03 Main */
+
+background: #1890FF;
+border-radius: 8px;
+}
