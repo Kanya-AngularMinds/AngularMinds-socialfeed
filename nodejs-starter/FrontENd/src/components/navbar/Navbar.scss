@@ -1,39 +1,33 @@
-.addModal{
-display: flex;
-flex-direction: column;
-// justify-content: center;
-// align-items: center;
-padding: 0px;
-width:632px;
-height:591px;
-margin:auto;
-margin-top: 150px;
-// gap: 120px;
-
-// position: absolute;
-left:35%;
-// right: 0%;
- top: 55%;
-// bottom: 0%;
-background: #FFFFFF;
-border-radius: 8px;
+.addModal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  padding: 2rem;
+  width: 400px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: auto;
 }
 
 @media only screen and (max-width: 487px) {
-    .amLogo{
-        width: 80px;
-        height:30px;
-        margin-left:-100px;
-    }
-    .navIcons{
-        display:none;  
-    }
+  .amLogo {
+    width: 80px;
+    height: 30px;
+    margin-left: -100px;
+  }
+  .navIcons {
+    display: none;
+  }
 }
 
-@media only screen and(max-width:740px){
-    .menu{
-        display:none;
-    }
+@media only screen and(max-width:740px) {
+  .menu {
+    display: none;
+  }
 }
-
-

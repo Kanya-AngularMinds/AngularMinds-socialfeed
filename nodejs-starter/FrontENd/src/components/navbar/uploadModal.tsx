@@ -1,9 +1,11 @@
 import {
   Avatar,
   Box,
+  Button,
   Grid,
   IconButton,
   InputAdornment,
+  Modal,
   TextareaAutosize,
   TextField,
 } from "@mui/material";
@@ -143,144 +145,129 @@ const UploadModal = ({
   return (
     <>
       {showModal ? (
-        <>
-          <Box
-            style={{
-              margin: "auto",
-              justifyContent: "center",
-              marginTop: "-620px",
-              marginLeft: "-320px",
-            }}
-          >
+        <Modal open={showModal}>
+          <Box className="addModal">
             <CloseIcon
-              style={{ position: "relative", top: "3%", right: "-103%" }}
+              style={{
+                position: "relative",
+                top: "-20",
+                right: "-364",
+                color: "gray",
+                cursor: "pointer",
+              }}
               onClick={() => setShowModal((prev: any) => !prev)}
             />
 
-            <Grid container>
-              <Grid
-                item
-                xs={12}
-                sx={{ backgroundColor: "white", height: "60px" }}
-              >
-                <a
-                  style={{
-                    float: "right",
-                    color: "#1890FF",
-                    fontSize: "20px",
-                    marginRight: "5px",
-                    cursor: "pointer",
-                  }}
-                  onClick={() => addPost()}
-                >
-                  upload
-                </a>
-              </Grid>
-
-              <ModalWrapper>
-                {previewImage && previewImage.length >= 2 ? (
-                  <SimpleImageSlider
-                    width={632}
-                    height={550}
-                    images={previewImage}
-                    showBullets={true}
-                    showNavs={true}
-                  />
-                ) : (
-                  <img
-                    src={image.filepreview}
-                    alt="img"
-                    style={{ width: "630px", height: "550px" }}
-                  />
-                )}
-
-                <ModalContent>
-                  <label style={{ display: "flex", padding: "10px 15px" }}>
-                    {" "}
-                    <Avatar />
-                    &nbsp;&nbsp;&nbsp;<p>UserName</p>
-                  </label>
-
-                  <div>
-                    <TextareaAutosize
-                      minRows={13}
-                      value={inputStr}
-                      onChange={(e) => {
-                        setInputStr(e.target.value);
-                      }}
-                      style={{
-                        width: "320px",
-                        marginLeft: "15px",
-                        border: "none",
-                      }}
-                      placeholder="Write a caption..."
+            <Grid container sx={{ bgcolor: "#ffffff" }}>
+              <Grid item xs={7}>
+                <div style={{ width: "100%", textAlign: "center" }}>
+                  {previewImage && previewImage.length >= 2 ? (
+                    <SimpleImageSlider
+                      images={previewImage}
+                      showBullets={true}
+                      showNavs={true}
                     />
-                    <br />
+                  ) : (
                     <img
-                      className="emoji-icon"
-                      src="https://icons.getbootstrap.com/assets/icons/emoji-smile.svg"
-                      onClick={() => setShowPicker((val) => !val)}
-                      style={{ position: "relative", left: "4%" }}
+                      src={image.filepreview}
+                      alt="img"
+                      style={{ maxWidth: "100%", height: "auto" }}
                     />
-                    {showPicker && (
-                      <Picker
-                        pickerStyle={{ width: "100%" }}
-                        onEmojiClick={onEmojiClick}
-                      />
-                    )}
-                  </div>
-                  <br />
-                  <br />
-                  <br />
-                  <TextField
-                    variant="standard"
-                    placeholder="Add location"
-                    InputProps={{
-                      disableUnderline: true,
-                      endAdornment: (
-                        <InputAdornment position="end">
-                          <IconButton
-                            edge="end"
-                            style={{ fontSize: "18px", marginRight: "8px" }}
-                          >
-                            <LocationOnOutlinedIcon />
-                          </IconButton>
-                        </InputAdornment>
-                      ),
+                  )}
+                </div>
+              </Grid>
+              <Grid item xs={5}>
+                <label style={{ display: "flex", padding: "10px 15px" }}>
+                  {" "}
+                  <Avatar />
+                  &nbsp;&nbsp;&nbsp;<p>UserName</p>
+                </label>
+
+                <div style={{ marginBottom: "1.5rem" }}>
+                  <TextareaAutosize
+                    minRows={12}
+                    value={inputStr}
+                    onChange={(e) => {
+                      setInputStr(e.target.value);
                     }}
-                  />
-                  <br />
-                  <br />
-                  <input
-                    type="file"
-                    style={{ display: "none" }}
-                    ref={imgRef}
-                    onChange={(e) => addImage(e)}
-                  />
-                  <TextField
-                    variant="standard"
-                    placeholder="Add images"
-                    InputProps={{
-                      disableUnderline: true,
-                      endAdornment: (
-                        <InputAdornment position="end">
-                          <IconButton
-                            edge="end"
-                            style={{ fontSize: "18px", marginRight: "8px" }}
-                          >
-                            <AddAPhotoOutlinedIcon
-                              onClick={() => imgRef.current?.click()}
-                            />
-                          </IconButton>
-                        </InputAdornment>
-                      ),
+                    style={{
+                      width: "310px",
+                      marginLeft: "15px",
+                      border: "none",
                     }}
+                    placeholder="Write a caption..."
                   />
-                </ModalContent>
-              </ModalWrapper>
+                  <br />
+                  <img
+                    alt="emoji"
+                    className="emoji-icon"
+                    src="https://icons.getbootstrap.com/assets/icons/emoji-smile.svg"
+                    onClick={() => setShowPicker((val) => !val)}
+                    style={{ position: "relative", left: "4%" }}
+                  />
+                  {showPicker && (
+                    <Picker
+                      pickerStyle={{ width: "100%" }}
+                      onEmojiClick={onEmojiClick}
+                    />
+                  )}
+                </div>
+
+                <TextField
+                  variant="standard"
+                  placeholder="Add location"
+                  sx={{ ml: 2 }}
+                  InputProps={{
+                    disableUnderline: true,
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          edge="end"
+                          style={{ fontSize: "18px", marginRight: "8px" }}
+                        >
+                          <LocationOnOutlinedIcon />
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                <br />
+                <br />
+                <input
+                  type="file"
+                  style={{ display: "none" }}
+                  ref={imgRef}
+                  onChange={(e) => addImage(e)}
+                />
+                <TextField
+                  variant="standard"
+                  placeholder="Add images"
+                  sx={{ ml: 2, mb: 2 }}
+                  InputProps={{
+                    disableUnderline: true,
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          edge="end"
+                          style={{ fontSize: "18px", marginRight: "8px" }}
+                        >
+                          <AddAPhotoOutlinedIcon
+                            onClick={() => imgRef.current?.click()}
+                          />
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} sx={{ textAlign: "right" }}>
+                <Button variant="contained" onClick={() => addPost()}>
+                  upload
+                </Button>
+              </Grid>
             </Grid>
           </Box>
-        </>
+        </Modal>
       ) : null}
       <Uploading
         uploading={uploading}
