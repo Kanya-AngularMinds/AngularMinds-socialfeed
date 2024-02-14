@@ -37,8 +37,6 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Picker from "emoji-picker-react";
 import Likemodal from "../likemodal/likemodal";
 
-
-
 function Login() {
   const [loading, setLoading] = useState(false);
   const [allFeeds, setAllFeeds] = useState([]);
@@ -55,7 +53,7 @@ function Login() {
   const [post, setPost] = useState([] as any);
   const userObj = JSON.parse(localStorage.getItem("currentUser") as any);
   const [showReply, setShowReply] = useState<boolean[]>([]);
-  const [openLikes,setOpenLikes] =useState(false)
+  const [openLikes, setOpenLikes] = useState(false);
 
   const replyRef = useRef("" as any);
 
@@ -149,36 +147,33 @@ function Login() {
   };
 
   /*************************************Boolean array of posts length***********************************/
-    const displayReplies = (index: number) => {
-     
-      let res = allFeeds.map((rs: any) => {
-        setShowReply(Array(allFeeds[index]["comment"]["length"]).fill(false));
-      });
-    };
+  const displayReplies = (index: number) => {
+    let res = allFeeds.map((rs: any) => {
+      setShowReply(Array(allFeeds[index]["comment"]["length"]).fill(false));
+    });
+  };
 
-     /*************************************show reply of comment***********************************/
-        const showSpecificReplies = (index: number) => {
-            let newArr = [...showReply];
-            newArr[index] = true;
-            setShowReply(newArr);
-          
-        };
+  /*************************************show reply of comment***********************************/
+  const showSpecificReplies = (index: number) => {
+    let newArr = [...showReply];
+    newArr[index] = true;
+    setShowReply(newArr);
+  };
 
-    /*************************************hide reply of comment***********************************/
-        const hideReply = (index: number) => 
-           {
-              let newArr = [...showReply];
-              newArr[index] = false;
-              setShowReply(newArr);
-           };
+  /*************************************hide reply of comment***********************************/
+  const hideReply = (index: number) => {
+    let newArr = [...showReply];
+    newArr[index] = false;
+    setShowReply(newArr);
+  };
 
-           /*************Call of getData****************/
-            useEffect(() => {
-              getData();
-            }, []);
-            
-      return (
-    <Container maxWidth="sm" style={{overflowY: "hidden"}}>
+  /*************Call of getData****************/
+  useEffect(() => {
+    getData();
+  }, []);
+
+  return (
+    <Container maxWidth="sm" style={{ overflowY: "hidden" }}>
       {allFeeds &&
         allFeeds.map((feed: any, index: any) => {
           return (
@@ -188,29 +183,28 @@ function Login() {
                 justifyContent: "center",
                 display: "flex",
                 marginTop: "30px",
-                overflow: "hidden"
+                overflow: "hidden",
               }}
               key={index}
             >
               <Card
                 sx={{
-                  boxShadow: 5,
                   borderRadius: 5,
-                  pb: 3,
+
                   pl: 3,
                   pr: 3,
                   width: 608,
                   // flex:none,
-                  height: 873,
+                  height: "auto",
                 }}
                 className="card-container"
               >
                 {allUsers &&
                   allUsers.map(
-                    (user: any,index:number) =>
+                    (user: any, index: number) =>
                       user._id === feed.CreatedBy._id && (
                         <CardHeader
-                        key={index}
+                          key={index}
                           style={{
                             margin: "auto",
                           }}
@@ -307,7 +301,7 @@ function Login() {
                         //    maxHeight: { xs: 333, md: 467 },
                         //    maxWidth: { xs: 350, md: 600 },
                         //  }}
-                        height="560"
+                        height="400"
                         image={photo.fileName}
                         alt="Paella dish"
                       />
@@ -321,7 +315,9 @@ function Login() {
                     aria-label="add to favorites"
                     color={
                       feed.like.includes(
-                        feed.like.find((el: any) => el.likedBy._id === userObj._id)
+                        feed.like.find(
+                          (el: any) => el.likedBy._id === userObj._id
+                        )
                       )
                         ? "error"
                         : "default"
@@ -465,8 +461,7 @@ function Login() {
         })}
 
       {/************************************************Comment pop up************************************************* */}
-  
- 
+
       <Modal
         open={openComment}
         style={{
@@ -843,7 +838,11 @@ function Login() {
           </div>
         </Box>
       </Modal>
-      <Likemodal openLikes={openLikes} setOpenLikes={setOpenLikes} post={post.like} />
+      <Likemodal
+        openLikes={openLikes}
+        setOpenLikes={setOpenLikes}
+        post={post.like}
+      />
     </Container>
   );
 }

@@ -171,7 +171,11 @@ const UploadModal = ({
                     <img
                       src={image.filepreview}
                       alt="img"
-                      style={{ maxWidth: "100%", height: "auto" }}
+                      style={{
+                        maxWidth: "100%",
+                        width: "550px",
+                        height: "auto",
+                      }}
                     />
                   )}
                 </div>
