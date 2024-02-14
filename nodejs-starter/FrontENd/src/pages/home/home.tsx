@@ -517,7 +517,13 @@ function Login() {
           </div>
           <div>
             <CloseIcon
-              style={{ position: "relative", right: "-520px" }}
+              style={{
+                position: "relative",
+                right: "-460px",
+                top: "-7px",
+                color: "gray",
+                cursor: "pointer",
+              }}
               onClick={() => setOpenComment(false)}
             />
             <Grid

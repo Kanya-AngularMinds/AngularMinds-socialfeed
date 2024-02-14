@@ -1,31 +1,43 @@
+.comment-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  padding: 2rem;
+  width: 400px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: auto;
+}
+
 .picker-container {
-    position: relative;
-    //  width: 300px;
-  }
-   
-  .emoji-icon {
-    cursor: pointer;
-    position: absolute;
-    top: 8px;
-    right: 480px;
-    height:25px;
-  }
-   
-  .input-style {
-    padding: 7px 30px 7px 10px;
-    // border-radius: 3px;
-    // border: 1px solid #999;
-    margin-bottom: 10px;
-   
-    border:none;
-  }
-  .home{
-    cursor: pointer;
-    // position: absolute;
-    top: 8px;
-    right: 250px;
-    
-  }
+  position: relative;
+  //  width: 300px;
+}
 
+.emoji-icon {
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  right: 480px;
+  height: 25px;
+}
 
- 
+.input-style {
+  padding: 7px 30px 7px 10px;
+  // border-radius: 3px;
+  // border: 1px solid #999;
+  margin-bottom: 10px;
+
+  border: none;
+}
+.home {
+  cursor: pointer;
+  // position: absolute;
+  top: 8px;
+  right: 250px;
+}
